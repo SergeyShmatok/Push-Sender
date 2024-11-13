@@ -23,7 +23,7 @@ fun main() {
           "postId": 2,
           "postAuthor": "Netology"
         }""".trimIndent())
-        .putData("action_2", "New Post")
+        .putData("action_2", "NewPost")
         .putData("content_2", """{
            "userId": 2,
            "userName": "Sergey",

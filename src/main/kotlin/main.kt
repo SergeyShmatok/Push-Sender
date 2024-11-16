@@ -15,7 +15,7 @@ fun main() {
 
     FirebaseApp.initializeApp(options)
 
-    val message = Message.builder()
+    val message1 = Message.builder()
         .putData("action_1", "LIKE")
         .putData("content_1", """{
           "userId": 1,
@@ -23,6 +23,11 @@ fun main() {
           "postId": 2,
           "postAuthor": "Netology"
         }""".trimIndent())
+        .setToken(token)
+        .build()
+
+
+    val message2 = Message.builder()
         .putData("action_2", "NewPost")
         .putData("content_2", """{
            "userId": 2,
@@ -32,6 +37,30 @@ fun main() {
         .setToken(token)
         .build()
 
-    FirebaseMessaging.getInstance().send(message)
+
+    val message3 = Message.builder()
+        .putData("action", "qwe")
+        .putData("content_2", """{
+            "userId": 1,
+            "userName": "Petr",
+            "postId": 2,
+            "postAuthor": "Netology"
+             }""".trimIndent())
+        .setToken(token)
+        .build()
+
+
+    FirebaseMessaging.getInstance().send(message1)
+
+    Thread.sleep(3000)
+
+    FirebaseMessaging.getInstance().send(message2)
+
+    Thread.sleep(3000)
+
+    FirebaseMessaging.getInstance().send(message3)
+
+
+
 }
 
